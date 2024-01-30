@@ -32,7 +32,7 @@ h1 {
   border: none;
 }
 
-#currentWeather, #forecast, #searchHistory {
+#currentWeather, #searchHistory {
   max-width: 800px;
   margin: 0 auto;
   background-color: #fff;
@@ -42,10 +42,35 @@ h1 {
   margin-bottom: 20px;
 }
 
-#currentWeather h2, #forecast h2, #searchHistory h2 {
+#currentWeather h2, #searchHistory h2 {
   border-bottom: 2px solid #ccc;
   padding-bottom: 10px;
   margin-bottom: 20px;
+}
+
+#forecast {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.forecastDay {
+  margin-bottom: 20px;
+}
+
+.forecastDay h3 {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.forecastDetails {
+  display: flex;
+  justify-content: space-between;
 }
 
 #searchHistory ul {
