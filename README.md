@@ -22,6 +22,3 @@ The Weather App is a web application that allows users to retrieve current and 5
 
 ## License
 - This project is licensed under the MIT License.
-
-## Acknowledgements
-- Weather data provided by OpenWeatherMap.
