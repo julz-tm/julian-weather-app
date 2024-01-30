@@ -12,7 +12,7 @@ searchForm.addEventListener('submit', function (event) {
   if (cityName === '') return;
 
   // Fetch current weather data
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`)
       .then(response => response.json())
       .then(data => {
           displayCurrentWeather(data);
@@ -21,7 +21,7 @@ searchForm.addEventListener('submit', function (event) {
       .catch(error => console.error('Error fetching current weather:', error));
 
   // Fetch 5-day forecast data
-  fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`)
+  fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=imperial`)
       .then(response => response.json())
       .then(data => displayForecast(data))
       .catch(error => console.error('Error fetching forecast:', error));
