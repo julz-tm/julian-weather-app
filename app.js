@@ -28,51 +28,66 @@ searchForm.addEventListener('submit', function (event) {
 });
 
 function displayCurrentWeather(data) {
-    // Add your code to display current weather details
-    // Example:
-    currentWeatherDiv.innerHTML = `
-        <h2>${data.name}</h2>
-        <p>Date: ${new Date().toLocaleDateString()}</p>
-        <p>Temperature: ${data.main.temp} °C</p>
-        <p>Humidity: ${data.main.humidity}%</p>
-        <p>Wind Speed: ${data.wind.speed} m/s</p>
-        <!-- Add your code to display the weather icon representation -->
-    `;
+    // Your existing code to display current weather details
+    const weatherCondition = getWeatherCondition(data.weather[0].main);
+    updateWeatherEmoji(weatherCondition);
+
+    // Add other current weather details here
 }
 
 function displayForecast(data) {
-    // Add your code to display 5-day forecast details
-    // Example:
-    forecastDiv.innerHTML = '<h2>5-Day Forecast</h2>';
+    // Your existing code to display 5-day forecast details
+    // ...
+
+    // Example usage of updating weather emoji dynamically for each forecast day
     for (let i = 0; i < data.list.length; i += 8) {
         const forecastData = data.list[i];
-        forecastDiv.innerHTML += `
-            <div>
-                <p>Date: ${forecastData.dt_txt}</p>
-                <p>Temperature: ${forecastData.main.temp} °C</p>
-                <p>Humidity: ${forecastData.main.humidity}%</p>
-                <p>Wind Speed: ${forecastData.wind.speed} m/s</p>
-                <!-- Add your code to display the weather icon representation -->
-            </div>
+        const weatherCondition = getWeatherCondition(forecastData.weather[0].main);
+        const emojiElement = document.createElement('div');
+        emojiElement.className = 'weatherEmoji';
+        emojiElement.textContent = getWeatherEmoji(weatherCondition);
+
+        const forecastDetailsElement = document.createElement('div');
+        forecastDetailsElement.className = 'forecastDetails';
+        forecastDetailsElement.innerHTML = `
+            <p>Date: ${forecastData.dt_txt}</p>
+            <!-- Add other forecast details here -->
         `;
+
+        const forecastDayElement = document.createElement('div');
+        forecastDayElement.className = 'forecastDay';
+        forecastDayElement.appendChild(emojiElement);
+        forecastDayElement.appendChild(forecastDetailsElement);
+
+        forecastDiv.appendChild(forecastDayElement);
     }
 }
 
 function addCityToHistory(cityName) {
-    searchHistory.push(cityName);
-    // Add your code to update the search history display
-    // Example:
-    searchHistoryDiv.innerHTML = `
-        <h2>Search History</h2>
-        <ul>
-            ${searchHistory.map(city => `<li><a href="#" onclick="searchHistoryClick('${city}')">${city}</a></li>`).join('')}
-        </ul>
-    `;
+    // Your existing code to add city to search history
+    // ...
 }
 
-function searchHistoryClick(cityName) {
-    // Add your code to handle click on a city in the search history
-    // Example:
-    cityInput.value = cityName;
-    searchForm.dispatchEvent(new Event('submit'));
+function getWeatherCondition(main) {
+    // Your existing code to determine weather condition
+    // ...
 }
+
+function updateWeatherEmoji(weatherCondition) {
+    const emojiElement = document.querySelector('.weatherEmoji');
+    emojiElement.textContent = getWeatherEmoji(weatherCondition);
+}
+
+function getWeatherEmoji(weatherCondition) {
+    // Map weather conditions to corresponding emojis
+    const emojiMap = {
+        'clear': '☀️',
+        'clouds': '☁️',
+        'rain': '🌧️',
+        'thunderstorm': '⛈️',
+        'snow': '❄️',
+        // Add more conditions as needed
+    };
+    return emojiMap[weatherCondition] || '❓';
+}
+

@@ -7,16 +7,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Julian's Weather App</h1>
-    <form id="searchForm">
-        <label for="cityInput">Enter city name:</label>
-        <input type="text" id="cityInput" required>
-        <button type="submit">Search</button>
-    </form>
+    <div class="container">
+        <header>
+            <h1>Julian's Weather App</h1>
+        </header>
 
-    <div id="currentWeather"></div>
-    <div id="forecast"></div>
-    <div id="searchHistory"></div>
+        <form id="searchForm">
+            <label for="cityInput">Enter city name:</label>
+            <input type="text" id="cityInput" required>
+            <button type="submit">Search</button>
+        </form>
+
+        <div id="currentWeather" class="currentWeather">
+            <h2 class="sectionHeader">Current Weather</h2>
+            <div class="weatherEmoji"></div>
+            <!-- Other current weather details go here -->
+        </div>
+
+        <div id="forecast" class="forecast">
+            <h2 class="sectionHeader">5-Day Forecast</h2>
+            <!-- Forecast days go here -->
+        </div>
+
+        <div id="searchHistory" class="searchHistory">
+            <h2 class="sectionHeader">Search History</h2>
+            <ul>
+                <!-- Search history items go here -->
+            </ul>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>
