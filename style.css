@@ -57,8 +57,8 @@ header {
 }
 
 .forecastDay {
-  flex-basis: calc(20% - 20px); /* Adjust as needed for spacing */
-  margin-bottom: 20px;
+  flex-basis: calc(30% - 30px); 
+  margin-bottom: 30px; 
 }
 
 .forecastDay h3 {
@@ -70,11 +70,6 @@ header {
 .forecastDetails {
   display: flex;
   justify-content: space-between;
-}
-
-.weatherEmoji {
-  font-size: 24px;
-  margin-right: 10px;
 }
 
 .searchHistory ul {

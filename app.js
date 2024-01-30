@@ -33,7 +33,7 @@ function displayCurrentWeather(data) {
   currentWeatherDiv.innerHTML = `
       <h2>${data.name}</h2>
       <p>Date: ${new Date().toLocaleDateString()}</p>
-      <p>Temperature: ${data.main.temp} °C</p>
+      <p>Temperature: ${data.main.temp} °F</p>
       <p>Humidity: ${data.main.humidity}%</p>
       <p>Wind Speed: ${data.wind.speed} m/s</p>
       <!-- Add your code to display the weather icon representation -->
@@ -49,7 +49,7 @@ function displayForecast(data) {
       forecastDiv.innerHTML += `
           <div>
               <p>Date: ${forecastData.dt_txt}</p>
-              <p>Temperature: ${forecastData.main.temp} °C</p>
+              <p>Temperature: ${forecastData.main.temp} °F</p>
               <p>Humidity: ${forecastData.main.humidity}%</p>
               <p>Wind Speed: ${forecastData.wind.speed} m/s</p>
               <!-- Add your code to display the weather icon representation -->
