@@ -1,0 +1,67 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#searchForm {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#searchForm label {
+  margin-right: 10px;
+}
+
+#searchForm input {
+  padding: 5px;
+}
+
+#searchForm button {
+  padding: 5px 10px;
+  background-color: #4285f4;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+}
+
+#currentWeather, #forecast, #searchHistory {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+#currentWeather h2, #forecast h2, #searchHistory h2 {
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+#searchHistory ul {
+  list-style: none;
+  padding: 0;
+}
+
+#searchHistory li {
+  margin-bottom: 5px;
+}
+
+#searchHistory a {
+  text-decoration: none;
+  color: #4285f4;
+}
+
+#searchHistory a:hover {
+  text-decoration: underline;
+}
