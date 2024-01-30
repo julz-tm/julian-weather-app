@@ -43,7 +43,13 @@ function displayForecast(data) {
     for (let i = 0; i < data.list.length; i += 8) {
         const forecastData = data.list[i];
         const weatherCondition = getWeatherCondition(forecastData.weather[0].main);
+
+        // Create unique IDs for each forecast day
+        const forecastDayId = `forecastDay${i}`;
+        const emojiElementId = `weatherEmoji${i}`;
+
         const emojiElement = document.createElement('div');
+        emojiElement.id = emojiElementId;
         emojiElement.className = 'weatherEmoji';
         emojiElement.textContent = getWeatherEmoji(weatherCondition);
 
@@ -55,11 +61,15 @@ function displayForecast(data) {
         `;
 
         const forecastDayElement = document.createElement('div');
+        forecastDayElement.id = forecastDayId;
         forecastDayElement.className = 'forecastDay';
         forecastDayElement.appendChild(emojiElement);
         forecastDayElement.appendChild(forecastDetailsElement);
 
         forecastDiv.appendChild(forecastDayElement);
+
+        // Update weather emoji for each forecast day
+        updateWeatherEmoji(weatherCondition, emojiElementId);
     }
 }
 
@@ -73,9 +83,11 @@ function getWeatherCondition(main) {
     // ...
 }
 
-function updateWeatherEmoji(weatherCondition) {
-    const emojiElement = document.querySelector('.weatherEmoji');
-    emojiElement.textContent = getWeatherEmoji(weatherCondition);
+function updateWeatherEmoji(weatherCondition, emojiElementId) {
+    const emojiElement = document.getElementById(emojiElementId);
+    if (emojiElement) {
+        emojiElement.textContent = getWeatherEmoji(weatherCondition);
+    }
 }
 
 function getWeatherEmoji(weatherCondition) {
@@ -90,4 +102,3 @@ function getWeatherEmoji(weatherCondition) {
     };
     return emojiMap[weatherCondition] || '❓';
 }
-
